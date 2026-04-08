@@ -1,0 +1,83 @@
+================================================
+  FixItPro - Local Service Marketplace
+  Quick Start Guide (Windows)
+================================================
+
+❌ COMMON ERROR FIX:
+   "npm error: Could not read package.json"
+   
+   This happens when you run "npm start" in the WRONG folder.
+   The package.json is INSIDE the "frontend" folder.
+   
+   ✅ CORRECT way to run:
+
+─────────────────────────────────────────────
+OPTION 1: Double-click the BAT files (Easiest)
+─────────────────────────────────────────────
+
+  Step 1: Double-click  →  START_BACKEND.bat
+  Step 2: Double-click  →  START_FRONTEND.bat
+
+  Done! Open http://localhost:3000 in your browser.
+
+
+─────────────────────────────────────────────
+OPTION 2: Manual commands in PowerShell/CMD
+─────────────────────────────────────────────
+
+  FRONTEND (React):
+  ─────────────────
+  cd C:\...\FixItPro_LocalServiceMarketplace\localservice\frontend
+  npm install
+  npm start
+
+  BACKEND (Python):
+  ─────────────────
+  cd C:\...\FixItPro_LocalServiceMarketplace\localservice\backend
+  python -m venv venv
+  venv\Scripts\activate
+  pip install -r requirements.txt
+  python app.py
+
+
+─────────────────────────────────────────────
+FOLDER STRUCTURE
+─────────────────────────────────────────────
+
+  localservice\
+  ├── START_FRONTEND.bat   ← Double-click to start React
+  ├── START_BACKEND.bat    ← Double-click to start Flask
+  ├── frontend\            ← React.js app (npm start here)
+  │   ├── package.json     ← npm reads THIS file
+  │   └── src\
+  ├── backend\             ← Python Flask app
+  │   ├── app.py
+  │   └── requirements.txt
+  └── database\
+      └── setup.sql        ← Run in SSMS first!
+
+
+─────────────────────────────────────────────
+DATABASE SETUP (Do this FIRST)
+─────────────────────────────────────────────
+
+  1. Open Microsoft SQL Server Management Studio (SSMS)
+  2. Connect to your SQL Server
+  3. Open file: database\setup.sql
+  4. Press F5 (Execute)
+  5. Done - all tables & 15 services are created!
+
+  Then update your DB password in:
+  backend\config\db.py  →  'password': 'YourPassword'
+
+
+─────────────────────────────────────────────
+URLS
+─────────────────────────────────────────────
+
+  Frontend  →  http://localhost:3000
+  Backend   →  http://localhost:5000
+  API Test  →  http://localhost:5000/api/services/
+
+
+================================================
